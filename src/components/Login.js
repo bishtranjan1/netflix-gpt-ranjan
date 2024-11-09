@@ -7,14 +7,13 @@ import {
 import { auth } from "../utils/firebase";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { NETFLIX_BACKDROP, USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errors, setErrors] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -39,18 +38,15 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: nVal,
-            photoURL: "https://avatars.githubusercontent.com/u/20682726?v=4",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
               dispatch(addUser({ uid, email, displayName, photoURL }));
-              navigate("/browse");
             })
             .catch((error) => {
               setErrors("errorMessage :" + error.message);
             });
-
-          console.log(`Sign UP >>`, user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -62,8 +58,6 @@ const Login = () => {
       signInWithEmailAndPassword(auth, eVal, pVal)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(`Sign IN >> `, user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -78,7 +72,7 @@ const Login = () => {
       <div className="h-screen">
         <img
           className="object-cover h-full w-full"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/81d64f3c-9627-4741-8f74-422bf35f9f1d/web/IN-en-20241104-TRIFECTA-perspective_55263ea2-af7f-40ed-9cf0-7029a9b9baf4_large.jpg"
+          src={NETFLIX_BACKDROP}
           alt="Netflix Bckground"
         />
       </div>
