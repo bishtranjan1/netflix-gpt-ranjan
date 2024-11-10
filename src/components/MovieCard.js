@@ -6,7 +6,7 @@ const MovieCard = ({ movie }) => {
   console.log("movie moviecard", movie);
 
   return (
-    <div className="w-48 m-1">
+    <div className="w-48 m-1 cursor-pointer">
       <img src={IMG_CDN_URL + poster_path} alt={title}></img>
     </div>
   );
