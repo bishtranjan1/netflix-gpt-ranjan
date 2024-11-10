@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -66,6 +66,9 @@ const Login = () => {
         });
     }
   };
+  useEffect(() => {
+    setErrors(null);
+  }, [isSignInForm]);
   return (
     <div>
       <Header />
@@ -103,7 +106,7 @@ const Login = () => {
           placeholder="Password"
           className="p-2 my-4 w-full bg-transparent border-solid border-2 border-gray-400"
         ></input>
-        <p className="text-red-500 text-lg font-bold py-1">{errors}</p>
+        <p className="text-red-500 text-lg py-1">{errors}</p>
         <button
           className="p-4 my-4 bg-red-700 w-full rounded"
           onClick={handleButtonClick}

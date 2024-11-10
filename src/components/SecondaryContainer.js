@@ -13,7 +13,7 @@ const SecondaryContainer = () => {
   console.log(" movies Store", movies);
   return (
     <div className="bg-black text-white">
-      <div className="relative -top-40">
+      <div className="relative -top-20  md:-top-40">
         <MovieList title={"Now Playing"} movies={nowPlayingMovies} />
         <MovieList title={"Popular"} movies={popularMovies} />
         <MovieList title={"Top Rated"} movies={topRatedMovies} />

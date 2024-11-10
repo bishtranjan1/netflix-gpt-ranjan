@@ -43,9 +43,9 @@ function Header() {
   };
   return (
     <div className="absolute px-2 md:px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between">
-      <img className="w-44" src={LOGO} alt="Netflix Logo" />
+      <img className="w-20  md:w-44" src={LOGO} alt="Netflix Logo" />
       {user && (
-        <div className="flex flex-row p-2 justify-between">
+        <div className="flex flex-row p-2 justify-between items-center">
           <img
             className="w-5 h-5 md:w-12 md:h-12"
             alt="user logo"
