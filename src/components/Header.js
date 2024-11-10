@@ -42,13 +42,17 @@ function Header() {
       });
   };
   return (
-    <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between">
+    <div className="absolute px-2 md:px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between">
       <img className="w-44" src={LOGO} alt="Netflix Logo" />
       {user && (
-        <div className="flex flex-row p-2">
-          <img className="w-12 h-12" alt="user logo" src={user?.photoURL} />
+        <div className="flex flex-row p-2 justify-between">
+          <img
+            className="w-5 h-5 md:w-12 md:h-12"
+            alt="user logo"
+            src={user?.photoURL}
+          />
           <button
-            className="p-2 ml-4 rounded text-white font-bold cursor-pointer"
+            className="md:p-2 md:ml-4 rounded text-white  md:font-bold cursor-pointer"
             onClick={handleSignOut}
           >
             Sign Out
